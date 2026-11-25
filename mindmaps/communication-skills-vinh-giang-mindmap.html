@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mindmap — Communication as Learnable Skills (Vinh Giang)</title>
+<style>
+  :root {
+    --bg:#f7f7f5; --fg:#1d1d1f; --muted:#6b6b70; --card:#ffffff; --line:#e2e2e0;
+    --c0:#6b7280; --c1:#2563eb; --c2:#0d9488; --c3:#c2410c; --c4:#7c3aed; --c5:#b45309;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#141416; --fg:#ececef; --muted:#9a9aa2; --card:#1e1e22; --line:#2e2e34;
+      --c0:#9ca3af; --c1:#60a5fa; --c2:#2dd4bf; --c3:#fb923c; --c4:#a78bfa; --c5:#fbbf24; }
+  }
+  * { box-sizing:border-box; }
+  html,body { margin:0; background:var(--bg); color:var(--fg); overflow-x:hidden;
+    font:15px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; }
+  header { max-width:1400px; margin:0 auto; padding:24px 20px 8px; }
+  h1 { font-size:1.5rem; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 14px; }
+  .root { border:2px solid var(--fg); border-radius:14px; padding:12px 16px; background:var(--card);
+    font-weight:600; max-width:820px; }
+  .root small { display:block; font-weight:400; color:var(--muted); margin-top:4px; }
+  .bar { display:flex; flex-wrap:wrap; gap:8px; margin:14px 0 0; }
+  .bar input { flex:1 1 220px; min-width:0; padding:8px 12px; border-radius:8px; border:1px solid var(--line);
+    background:var(--card); color:var(--fg); font:inherit; }
+  .bar button { padding:8px 12px; border-radius:8px; border:1px solid var(--line); background:var(--card);
+    color:var(--fg); font:inherit; cursor:pointer; }
+  main { max-width:1400px; margin:0 auto; padding:12px 20px 40px; display:grid; gap:14px;
+    grid-template-columns:repeat(auto-fill,minmax(min(100%,400px),1fr)); align-items:start; }
+  .branch { background:var(--card); border:1px solid var(--line); border-top:4px solid var(--c);
+    border-radius:12px; padding:10px 14px 12px; min-width:0; }
+  details { margin:2px 0; }
+  summary { cursor:pointer; padding:3px 0; list-style-position:outside; overflow-wrap:anywhere; }
+  .branch > details > summary { font-weight:700; font-size:1.05rem; color:var(--c); }
+  .kids { margin-left:8px; padding-left:12px; border-left:2px solid color-mix(in srgb,var(--c) 35%,transparent); }
+  .leaf { padding:3px 0 3px 2px; overflow-wrap:anywhere; }
+  .leaf::before { content:"• "; color:var(--c); }
+  .key { font-weight:600; }
+  mark { background:color-mix(in srgb,var(--c5) 40%,transparent); color:inherit; border-radius:3px; }
+  .hide { display:none; }
+  footer { max-width:1400px; margin:0 auto; padding:0 20px 30px; color:var(--muted); font-size:.85rem; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Communication as Learnable Skills</h1>
+  <p class="sub">Vinh Giang on <em>Figuring Out</em> (Raj Shamani) · concept mindmap · wiki: <code>wiki/communication-skills-vinh-giang.md</code></p>
+  <div class="root">You're not a broken instrument — you were never taught how to play.
+    <small>Baseline → Be heard → Be seen → Connect → Make others feel heard → 30-day protocol. Golden rule: if it distracts from your message, it's a problem.</small></div>
+  <div class="bar">
+    <input id="q" type="search" placeholder="Search the map…" aria-label="Search">
+    <button id="open">Expand all</button><button id="close">Collapse all</button>
+  </div>
+</header>
+<main id="map"></main>
+<footer>Source: raw/youtube/2026-11-25-1825-vinh-giang-communication-skills.md · transcript had gaps; heuristics are coaching advice, not research findings.</footer>
+<script>
+const MAP = [
+ {t:"0 · Baseline: 5-minute self-audit", c:"--c0", k:[
+   {t:"Why", k:["You've never seen yourself communicate — your self-image is inaccurate","Avoiding your own video = avoiding self-awareness"]},
+   {t:"Record", k:["5 min, unplanned, first take only","Stuck? Favourite person / food / place, or why you want to improve"]},
+   {t:"Wait 24 hours", k:["Watching immediately → self-conscious, not useful"]},
+   {t:"Pass 1 · audio only", k:["Phone face-down, just listen","Melody, mumbling, pace, flat/uninterested tone — write it down"]},
+   {t:"Pass 2 · video muted", k:["Hands, face, fidgeting, rubbing hands, swinging chair","Posture"]},
+   {t:"Pass 3 · transcript → AI", k:["Top 5–10 grammar mistakes","Structure: am I repeating myself?","Filler words: really, like, so, you know","Non-words: um, uh (\"mhm\" back-channel is fine)"]},
+   {t:"Golden rule", k:["If it distracts people from your message, it's a problem","His example: a childhood tongue-clicking habit","Frequency matters: 1 slip ok, 16 in 20 min = \"black dot on a whiteboard\""]}
+ ]},
+ {t:"1 · Be heard — voice", c:"--c1", k:[
+   {t:"Read out loud", k:["3–4× a day, ~5 min each","Over-exaggerate lip movements → trains the mouth patterns of the language","Most learners read silently — don't"]},
+   {t:"Shadow a native speaker", k:["Audiobook + the book","Listen to a line → replicate → compare recordings","Feels fake at first — kids copy their parents' walk; that's learning","Add your own flavour once you have the reference"]},
+   {t:"Volume (0–10 scale)", k:["Low confidence lives at ~2; aim for 5","Quiet → level 5 alone can transform how you land","Unfamiliar ≠ fake; repetition makes it natural"]},
+   {t:"Speak for your work", k:["\"Let my work speak for itself\" — the work never speaks","Do great work AND speak for it"]},
+   {t:"Stage: the distractor", k:["Lost the room? Clap + \"listen — let me use a different metaphor\"","Auditory + visual pattern break that resets attention","Once per presentation max — one backup parachute","Needing it twice = know your content better"]}
+ ]},
+ {t:"2 · Be seen — body language", c:"--c2", k:[
+   {t:"Posture", k:["Your posture introduces you before you do","Ear-to-shoulder distance reads as confidence","Shoulders down and back, head high"]},
+   {t:"Gestures", k:["Audit your gesture vocabulary in the muted pass","Expand it — larger presence"]},
+   {t:"Outcome", k:["Stronger volume → heard","Larger presence → seen"]}
+ ]},
+ {t:"3 · Connect — storytelling", c:"--c3", k:[
+   {t:"Headlines vs stories", k:["People share the lesson (\"don't give up\"), not the story","Follow-up \"tell me more — why?\" unlocks it","Stories bouncing back and forth = connection"]},
+   {t:"\"I have no stories\" is false", k:["Cried, embarrassed, jealous, envious, lied? You have stories","You just don't document them"]},
+   {t:"Story bank", k:["Capture whenever something moves you emotionally","Who · What · Where · When","+ What does it mean? ← the most important part","Most people \"don't land the plane\""]},
+   {t:"You control the meaning", k:["You can't control what happens, only what it means","His parents' long factory/sewing days → framed as \"we love you\"","Ordinary moments work (eating the spicy snack on set)"]}
+ ]},
+ {t:"4 · Make others feel heard — listening", c:"--c4", k:[
+   {t:"Four channels", k:["Mind → words","Eyes → body language","Ears → vocal changes","Heart → mood & emotion (emotional intelligence)"]},
+   {t:"Read clusters, not single cues", k:["\"I'm drowning at work\": strong word + flat body + flat voice","Together → exhausted / defeated"]},
+   {t:"Reflect, then pause", k:["Never assume — reflect the emotion: \"sounds harder than hard, want to talk?\"","Then pause as long as needed; don't fill silence out of awkwardness","\"How can I help?\" → his sister asked only for a normal night out","People often know how to help themselves"]},
+   {t:"Pull threads of joy too", k:["Not only sadness — expand someone's happy moment","Don't one-up (their alpacas, not yours)","Turn a 90-second joy into a 30-minute one"]},
+   {t:"Drill: Last Word, Last Letter", k:["Start your reply with the last letter of their last word","Conversation must still make sense","You can't draft a reply while they talk → forced listening","Great listener: let them finish, pause, respond","\"Be present\" = listen"]}
+ ]},
+ {t:"5 · 30-day protocol (10 min/day)", c:"--c5", k:[
+   {t:"One thing only", k:["Pick a single focus (e.g. \"I speak too quietly\")","Choosing 7–10 means doing none"]},
+   {t:"Daily loop", k:["Record → review → same focus tomorrow if it isn't there yet","Move on only when it holds"]},
+   {t:"Expectations", k:["A 10-year habit won't break in a day","False expectations → disappointment → quitting","~5 changes in a month is a life-changing result"]},
+   {t:"Golf-ball analogy", k:["Millimetres at impact change the whole trajectory"]},
+   {t:"Periodic reflection", k:["~Quarterly: what made me lose track of time? what drained me?"]}
+ ]}
+];
+const el=(tag,cls,txt)=>{const e=document.createElement(tag); if(cls)e.className=cls; if(txt!=null)e.textContent=txt; return e;};
+function node(n){
+  if(typeof n==="string"){ const d=el("div","leaf"); d.dataset.text=n; d.textContent=n; return d; }
+  const d=el("details"); d.open=true;
+  const s=el("summary",null,n.t); s.dataset.text=n.t; d.append(s);
+  const kids=el("div","kids"); n.k.forEach(k=>kids.append(node(k))); d.append(kids); return d;
+}
+const map=document.getElementById("map");
+MAP.forEach(b=>{ const card=el("section","branch"); card.style.setProperty("--c",`var(${b.c})`);
+  const d=node(b); card.append(d); map.append(card); });
+document.getElementById("open").onclick=()=>map.querySelectorAll("details").forEach(d=>d.open=true);
+document.getElementById("close").onclick=()=>map.querySelectorAll(".kids details").forEach(d=>d.open=false);
+const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+document.getElementById("q").addEventListener("input",e=>{
+  const q=e.target.value.trim().toLowerCase();
+  map.querySelectorAll("[data-text]").forEach(n=>{ const t=n.dataset.text;
+    const i=q?t.toLowerCase().indexOf(q):-1;
+    n.innerHTML= i<0?esc(t):esc(t.slice(0,i))+"<mark>"+esc(t.slice(i,i+q.length))+"</mark>"+esc(t.slice(i+q.length)); });
+  map.querySelectorAll("section.branch").forEach(sec=>{
+    if(!q){ sec.classList.remove("hide"); sec.querySelectorAll(".hide").forEach(x=>x.classList.remove("hide")); return; }
+    const hit=[...sec.querySelectorAll("[data-text]")].some(n=>n.dataset.text.toLowerCase().includes(q));
+    sec.classList.toggle("hide",!hit);
+    sec.querySelectorAll("details").forEach(d=>{ const h=d.textContent.toLowerCase().includes(q); d.classList.toggle("hide",!h); if(h)d.open=true; });
+    sec.querySelectorAll(".leaf").forEach(l=>{ const own=l.dataset.text.toLowerCase().includes(q);
+      const parentHit=l.closest("details").querySelector(":scope>summary").dataset.text.toLowerCase().includes(q);
+      l.classList.toggle("hide",!(own||parentHit)); });
+  });
+});
+</script>
+</body>
+</html>
